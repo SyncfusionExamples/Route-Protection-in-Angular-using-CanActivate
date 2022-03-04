@@ -4,23 +4,28 @@ import { AdminHomeComponent } from "./components/admin-home/admin-home.component
 import { ContactUsComponent } from "./components/contact-us/contact-us.component";
 import { CustomerHomeComponent } from "./components/customer-home/customer-home.component";
 import { HomeComponent } from "./components/home/home.component";
+import { AuthGuard } from "./guards/auth.guard";
 
 const routes: Routes = [
   {
     path: 'admin',
-    component: AdminHomeComponent
+    component: AdminHomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'customer',
-    component: CustomerHomeComponent
+    component: CustomerHomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'guest',
-    component: ContactUsComponent
+    component: ContactUsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '',
